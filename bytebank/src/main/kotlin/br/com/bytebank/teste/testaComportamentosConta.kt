@@ -50,7 +50,6 @@ fun testaComportamentosConta() {
         )
     )
 
-
     conta2.deposita(9.1)
 
     conta.deposita(100.0)

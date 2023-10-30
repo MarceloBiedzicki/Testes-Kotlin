@@ -3,7 +3,7 @@ package br.com.bytebank.modelo
 
 abstract class Conta(
     val titular: Cliente,
-    var numero: Int,
+    val numero: Int,
 ) : Autenticavel by titular{
 
     var saldo = 0.0
