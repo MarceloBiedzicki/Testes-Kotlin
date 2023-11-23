@@ -1,6 +1,7 @@
 package br.com.bytebank.teste
 
 import br.com.bytebank.modelo.*
+import br.com.bytebank.recursos_do_paradigma_funcional_curso.teste
 
 fun testaAutencicacao() {
 
@@ -35,4 +36,6 @@ fun testaAutencicacao() {
     sistema.entra(gerente, 1000)
     sistema.entra(autenticavel = diretor, senha = 2000)
     sistema.entra(cliente, 2000)
+
+
 }
