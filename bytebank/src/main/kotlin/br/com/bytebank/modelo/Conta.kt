@@ -1,6 +1,5 @@
 package br.com.bytebank.modelo
 
-
 abstract class Conta(
     val titular: Cliente,
     val numero: Int,
@@ -9,7 +8,7 @@ abstract class Conta(
     var saldo = 0.0
         protected set
 
-    var text: String? = null
+    private var text: String? = null
 
     companion object {
         var total = 0
@@ -21,7 +20,14 @@ abstract class Conta(
         total++
     }
 
-    constructor(titular: Cliente, numero: Int, text: String?) : this(titular, numero) {
+    constructor(
+        titular: Cliente,
+        numero: Int,
+        text: String?
+    ) : this(
+        titular,
+        numero
+    ) {
         this.text = text
     }
 

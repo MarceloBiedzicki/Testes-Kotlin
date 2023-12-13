@@ -1,7 +1,9 @@
 package br.com.bytebank.modelo
 
 class ContaCorrente(
-    titular: Cliente, numero: Int, numOpcional: Int = 2   //se não digitar nada na hora de criar o numero sera 2
+    titular: Cliente,
+    numero: Int,
+    numOpcional: Int = 2   //se não digitar nada na hora de criar o numero sera 2
 ) : ContaTransferivel(
     titular = titular,
     numero = numero,

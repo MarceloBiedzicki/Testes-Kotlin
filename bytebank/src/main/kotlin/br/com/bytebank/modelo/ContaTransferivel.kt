@@ -11,7 +11,7 @@ abstract class ContaTransferivel(
 ) {
 
     fun transfere(destino: Conta, valor: Double, senha: Int) {
-        if (!this.autentica(senha)) {
+        if (this.autentica(senha)) {
             if (this.saldo < valor) {
                 throw SaldoInsuficienteException(
                     mensagem = """

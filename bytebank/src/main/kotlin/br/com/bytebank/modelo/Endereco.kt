@@ -39,4 +39,11 @@ class Endereco(
         return result
     }
 
+    fun completo(): String {
+        return """
+        $rua - $numero, $bairro, $cidade 
+        $cep
+        """.trimIndent()
+    }
+
 }
