@@ -1,5 +1,19 @@
 package br.com.bytebank.typeSafeBuilderDSL
 
+/**
+ * -> o que é inline
+ *  - inline vai copiar a implementação da lambda pra dentro da função que chama, isso irá melhorar a performance.
+ * -> crossiline
+ *  - crossinline fará com que a execução chegue até a implementação da função a qual esteja marcado com crossinline.
+ *  - não poderá ser usado return na implementação anterior, assim a execução chegará até ela.
+ * -> se a for uma lambda complexa não convem usar inline, pois o bitecode sera imenso.
+ * -> noinline
+ *  - se for uma inline fun e tenha algum parametro que seja uma highorder function, pode marcar este com noinline
+ * -> stack trace
+ *  - usando inline fica dificil achar o stacktrace em uma exception. sem ela consegue achar qual lambda
+ * ocorreu a exception.
+ */
+
 enum class BoardColor {
     BLACK, WHITE, GREEN, BLUE
 }
@@ -14,7 +28,7 @@ class Task {
     var description: String = ""
     var atachments: MutableList<Atachment> = mutableListOf()
 
-    fun atachment(init: Atachment.() -> Unit) {
+    inline fun atachment(init: Atachment.() -> Unit) {
         val atachment = Atachment()
         atachment.init()
         atachments.add(atachment)
@@ -26,14 +40,15 @@ class Board {
     var color: BoardColor = BoardColor.BLUE
     var tasks: MutableList<Task> = mutableListOf()
 
-    fun task(init: Task.() -> Unit) {
+    inline fun task(init: Task.() -> Unit) {
         val task = Task()
         task.init()
         tasks.add(task)
     }
 }
 
-fun board(init: Board.() -> Unit): Board {
+
+inline fun board(init: Board.() -> Unit): Board {
     val board = Board()
     board.init()
     return board
@@ -70,6 +85,11 @@ fun typeSafeBuilderYoutube1() {
             }
         }
 
+        var num = 1
+        repetir(5){
+            println(num)
+            num ++
+        }
     }
 
     println(
@@ -86,4 +106,14 @@ fun typeSafeBuilderYoutube1() {
     """.trimIndent()
     )
 
+
+
+}
+inline fun repetir(times: Int, crossinline action: () -> Unit){
+    for (i in 1 .. times){
+        action()
+        if (i == 3){
+            println("num 3 print")
+        }
+    }
 }
