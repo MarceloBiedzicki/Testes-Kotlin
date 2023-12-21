@@ -4,7 +4,7 @@ import br.com.bytebank.recursos_do_paradigma_funcional_curso.testaTipoFuncaoClas
 
 fun main() {
 
-testaTipoFuncaoClasse()
+
 
 }
 

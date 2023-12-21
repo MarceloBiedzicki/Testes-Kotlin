@@ -56,7 +56,7 @@ fun letImplementacoesEScopeFunctions() {
 
     val autenticavel = object : Autenticavel {
         val senha = 1234
-        override fun autentica(senha: Int) = this.senha == senha
+        override fun autentica(senha: Int) =  this.senha == senha
     }
 
     val sistema = SistemaInterno()

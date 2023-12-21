@@ -1,7 +1,5 @@
 package br.com.bytebank.recursos_do_paradigma_funcional_curso
 
-import javax.swing.ImageIcon
-
 fun testeFuncaoLambda() {
 
     val minhaFuncaoLambda: () -> Unit = {
@@ -41,12 +39,12 @@ fun testeFuncaoLambda() {
     val calculaBonificacao: (salario: Double) -> Double = lambda@{ salario ->
         if (salario > 1000.0) {
             return@lambda salario + 50.0
-        }
+        }//sem o lambda@ o return sai do main
         salario + 100.0
     }
     println(calculaBonificacao(1100.0))
 
-    val calculaBonificacaoAnonima: (salario: Double) -> Double = fun(salario): Double {
+    val calculaBonificacaoAnonima: (salario: Double) -> Double = fun (salario): Double {
         if (salario > 1000.0) {
             return salario + 50.0
         }
