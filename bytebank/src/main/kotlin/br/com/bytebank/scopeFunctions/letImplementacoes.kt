@@ -28,6 +28,7 @@ fun letImplementacoesEScopeFunctions() {
 
     //exemplo with
     val enderecoWith = Endereco(rua = "rua verqueiro", numero = 3185)
+
     with(enderecoWith) {
         "$rua,$numero".uppercase()
     }.let(::println)
