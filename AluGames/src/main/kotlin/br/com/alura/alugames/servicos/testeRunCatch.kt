@@ -14,7 +14,7 @@ fun testeRunCatch() {
     }
 
     resultado.onSuccess {
-        println("Muito bom")
+        println("Hehe")
     }
 
     resultado.onFailure {
