@@ -2,6 +2,7 @@ package br.com.alura.alugames.modelo
 
 import com.google.gson.annotations.Expose
 import java.math.BigDecimal
+import javax.persistence.*
 
 class Jogo(
     @Expose val titulo: String,
@@ -14,9 +15,12 @@ class Jogo(
     override val media: Double
         get() = listaNotas.average()
 
-    constructor(titulo: String, capa: String, preco: BigDecimal, descricao: String) : this(titulo, capa) {
+    var id = 0
+
+    constructor(titulo: String, capa: String, preco: BigDecimal, descricao: String?, id: Int = 0) : this(titulo, capa) {
         this.preco = preco
         this.descricao = descricao
+        this.id = id
     }
 
     override fun recomendar(nota: Int) {
@@ -26,8 +30,10 @@ class Jogo(
     override fun toString(): String {
         return "- Titulo: $titulo\n" +
                 "  - Capa: $capa\n" +
+                "  - Id: $id \n" +
+                "  - Preço: $preco\n" +
                 "  - Nota: %.2f \n"
-                    .format(this.media) +
+                    .format(media) +
                 "  - Descrição:\n " +
                 " - $descricao\n\n"
     }

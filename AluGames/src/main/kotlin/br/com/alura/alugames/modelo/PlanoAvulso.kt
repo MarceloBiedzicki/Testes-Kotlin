@@ -4,8 +4,9 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 class PlanoAvulso(
-    tipo: String
-) : Plano(tipo) {
+    tipo: String,
+    id: Int = 0
+) : Plano(tipo,id) {
 
     override fun obterValor(aluguel: Aluguel): BigDecimal {
         var valorOriginal = super.obterValor(aluguel)
@@ -14,6 +15,12 @@ class PlanoAvulso(
                 .setScale(2,RoundingMode.HALF_EVEN)
         }
         return valorOriginal.setScale(2,RoundingMode.HALF_EVEN)
+    }
+
+    override fun toString(): String {
+        return "Plano Avulso\n" +
+                "Tipo: $tipo\n" +
+                "Id: $id\n"
     }
 
 }
